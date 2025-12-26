@@ -158,6 +158,9 @@ importers:
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      jotai:
+        specifier: ^2.16.1
+        version: 2.16.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.7)(react@19.2.0)
       lucide-react:
         specifier: ^0.554.0
         version: 0.554.0(react@19.2.0)
@@ -238,8 +241,8 @@ importers:
         specifier: 1.0.0
         version: 1.0.0
       inngest-cli:
-        specifier: ^1.14.0
-        version: 1.14.0
+        specifier: ^1.15.3
+        version: 1.15.3
       mprocs:
         specifier: ^0.7.3
         version: 0.7.3
@@ -3394,8 +3397,8 @@ packages:
   inherits@2.0.4:
     resolution: {integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==}
 
-  inngest-cli@1.14.0:
-    resolution: {integrity: sha512-ECZIZiDUFam+qoabip73kv3k/T9CZQHvGrv7127oTnbiNv5AdNDpvjvJJun7itf3Oi7BaBT4y+INWg6rqxKmEA==}
+  inngest-cli@1.15.3:
+    resolution: {integrity: sha512-HRAkvxSLR4a8h1qgcp/ugLD4L6smABMpnKI/11rZ1myFjbYK/gHT7fT7yRvTenTcT2+MYX/L0MdbBjN4fobtvg==}
     hasBin: true
 
   inngest@3.46.0:
@@ -3499,6 +3502,24 @@ packages:
 
   jose@6.1.2:
     resolution: {integrity: sha512-MpcPtHLE5EmztuFIqB0vzHAWJPpmN1E6L4oo+kze56LIs3MyXIj9ZHMDxqOvkP38gBR7K1v3jqd4WU2+nrfONQ==}
+
+  jotai@2.16.1:
+    resolution: {integrity: sha512-vrHcAbo3P7Br37C8Bv6JshMtlKMPqqmx0DDREtTjT4nf3QChDrYdbH+4ik/9V0cXA57dK28RkJ5dctYvavcIlg==}
+    engines: {node: '>=12.20.0'}
+    peerDependencies:
+      '@babel/core': '>=7.0.0'
+      '@babel/template': '>=7.0.0'
+      '@types/react': '>=17.0.0'
+      react: '>=17.0.0'
+    peerDependenciesMeta:
+      '@babel/core':
+        optional: true
+      '@babel/template':
+        optional: true
+      '@types/react':
+        optional: true
+      react:
+        optional: true
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -7889,7 +7910,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  inngest-cli@1.14.0:
+  inngest-cli@1.15.3:
     dependencies:
       adm-zip: 0.5.16
       debug: 4.4.3
@@ -7986,6 +8007,13 @@ snapshots:
   jiti@2.6.1: {}
 
   jose@6.1.2: {}
+
+  jotai@2.16.1(@babel/core@7.28.5)(@babel/template@7.27.2)(@types/react@19.2.7)(react@19.2.0):
+    optionalDependencies:
+      '@babel/core': 7.28.5
+      '@babel/template': 7.27.2
+      '@types/react': 19.2.7
+      react: 19.2.0
 
   js-tokens@4.0.0: {}
 
