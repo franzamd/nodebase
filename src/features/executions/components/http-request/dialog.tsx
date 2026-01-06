@@ -164,7 +164,7 @@ export const HttpRequestDialog = ({
                     />
                   </FormControl>
                   <FormDescription>
-                    Static URL or use {"{{variables}}"} for simple values or
+                    Static URL or use {"{{variables}}"} for simple values or{" "}
                     {"{{json variable}}"} to stringify objects
                   </FormDescription>
                 </FormItem>

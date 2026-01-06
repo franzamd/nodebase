@@ -12,9 +12,9 @@ Handlebars.registerHelper("json", (context) => {
 });
 
 type HttpRequestData = {
-  variableName: string;
-  endpoint: string;
-  method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
+  variableName?: string;
+  endpoint?: string;
+  method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
   body?: string;
 };
 
@@ -25,7 +25,6 @@ export const httpRequestExecutor: NodeExecutor<HttpRequestData> = async ({
   step,
   publish,
 }) => {
-  // TODO: Publish "loading" state for http request
   await publish(
     httpRequestChannel().status({
       nodeId,
@@ -33,35 +32,34 @@ export const httpRequestExecutor: NodeExecutor<HttpRequestData> = async ({
     }),
   );
 
-  if (!data.endpoint) {
-    await publish(
-      httpRequestChannel().status({
-        nodeId,
-        status: "error",
-      }),
-    );
-    throw new NonRetriableError("HTTP Rquest node: No endpoint configured");
-  }
-
-  if (!data.variableName) {
-    await publish(
-      httpRequestChannel().status({
-        nodeId,
-        status: "error",
-      }),
-    );
-    throw new NonRetriableError(
-      "HTTP Rquest node: Variable name not configured",
-    );
-  }
-
-  if (!data.method) {
-    // TODO: Publish "error" state for http request
-    throw new NonRetriableError("HTTP Rquest node: Method not configured");
-  }
-
   try {
     const result = await step.run("http-request", async () => {
+      if (!data.endpoint) {
+        await publish(
+          httpRequestChannel().status({
+            nodeId,
+            status: "error",
+          }),
+        );
+        throw new NonRetriableError("HTTP Rquest node: No endpoint configured");
+      }
+
+      if (!data.variableName) {
+        await publish(
+          httpRequestChannel().status({
+            nodeId,
+            status: "error",
+          }),
+        );
+        throw new NonRetriableError(
+          "HTTP Rquest node: Variable name not configured",
+        );
+      }
+
+      if (!data.method) {
+        throw new NonRetriableError("HTTP Rquest node: Method not configured");
+      }
+
       const endpoint = Handlebars.compile(data.endpoint)(context);
       const method = data.method;
 
