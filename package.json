@@ -13,7 +13,9 @@
     "dev:all": "dotenv -- mprocs"
   },
   "dependencies": {
+    "@ai-sdk/anthropic": "^3.0.7",
     "@ai-sdk/google": "^2.0.43",
+    "@ai-sdk/openai": "^3.0.7",
     "@hookform/resolvers": "^5.2.2",
     "@inngest/realtime": "^0.4.5",
     "@paralleldrive/cuid2": "^3.0.4",
