@@ -1,6 +1,6 @@
 "use client";
 
-import { ExecutionStatus } from "@/generated/prisma/enums";
+import { ExecutionStatus } from "@/generated/prisma/client";
 import {
   CheckCircle2Icon,
   ClockIcon,
