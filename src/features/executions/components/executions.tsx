@@ -21,6 +21,8 @@ import {
   Loader2Icon,
   XCircleIcon,
 } from "lucide-react";
+import { useSuspenseCredential } from "@/features/credentials/hooks/use-credentials";
+import { CredentialForm } from "@/features/credentials/components/credential";
 
 export const ExecutionsList = () => {
   const executions = useSuspenseExecutions();
