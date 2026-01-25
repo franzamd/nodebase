@@ -51,6 +51,38 @@ export function RegisterForm() {
     },
   });
 
+  const signInGithub = async () => {
+    const data = await authClient.signIn.social(
+      {
+        provider: "github",
+      },
+      {
+        onSuccess: () => {
+          router.push("/");
+        },
+        onError: () => {
+          toast.error("Soemthing went wrong");
+        },
+      },
+    );
+  };
+
+  const signInGoogle = async () => {
+    const data = await authClient.signIn.social(
+      {
+        provider: "google",
+      },
+      {
+        onSuccess: () => {
+          router.push("/");
+        },
+        onError: () => {
+          toast.error("Soemthing went wrong");
+        },
+      },
+    );
+  };
+
   const onSubmit = async (values: RegisterFormValues) => {
     await authClient.signUp.email(
       {
@@ -85,21 +117,33 @@ export function RegisterForm() {
               <div className="grid gap-6">
                 <div className="flex flex-col gap-4">
                   <Button
+                    onClick={signInGithub}
                     variant="outline"
                     className="w-full"
                     type="button"
                     disabled={isPending}
                   >
-                    <Image src="/logos/github.svg" width={20} height={20} alt="Github" />
+                    <Image
+                      src="/logos/github.svg"
+                      width={20}
+                      height={20}
+                      alt="Github"
+                    />
                     Continue with Github
                   </Button>
                   <Button
+                    onClick={signInGoogle}
                     variant="outline"
                     className="w-full"
                     type="button"
                     disabled={isPending}
                   >
-                    <Image src="/logos/google.svg" width={20} height={20} alt="Google" />
+                    <Image
+                      src="/logos/google.svg"
+                      width={20}
+                      height={20}
+                      alt="Google"
+                    />
                     Continue with Google
                   </Button>
                 </div>
